@@ -19,10 +19,11 @@ function Navbar() {
                 <div className="flex items-center justify-around w-full max-w-8xl mx-auto">
                     <Link href="/" className="flex-shrink-0">
                        <Image
-                                 src="/2.svg"
+                                
+                                 src="/next.svg"
                                  alt="Next.js logo"
-                                 width={180}
-                                 height={38}
+                                 width={280}
+                                 height={280}
                                  priority
                                />
                     </Link>
