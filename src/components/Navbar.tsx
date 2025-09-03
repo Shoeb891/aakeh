@@ -17,17 +17,7 @@ function Navbar() {
       {/* Top Header */}
       <div className="flex items-center justify-between px-6 py-3 bg-gray-300">
         <div className="flex items-center justify-around w-full max-w-8xl mx-auto">
-          <Link href="/" className="flex-shrink-0">
-            <Image 
-              src="/2.svg" 
-              alt="Company Logo" 
-              width={360} 
-              height={360} 
-              className="w-[230px] sm:w-[300px] lg:w-[360px] h-auto" 
-              priority
-              sizes="(max-width: 640px) 230px, (max-width: 1024px) 300px, 360px"
-            />
-          </Link>
+          
           
           <div className="flex items-center">
             {/* Desktop Contact Button */}
