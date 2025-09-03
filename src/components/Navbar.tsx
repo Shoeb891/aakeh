@@ -18,16 +18,13 @@ function Navbar() {
             <div className="flex items-center justify-between px-6 py-3 bg-gray-300">
                 <div className="flex items-center justify-around w-full max-w-8xl mx-auto">
                     <Link href="/" className="flex-shrink-0">
-                        <Image
-                            src="/2.png"
+                        <img
+                            src="/2.svg"
                             alt="Company Logo"
-                            width={360}
-                            height={360}
-                            style={{ height: "auto" }} // keeps aspect ratio
-                            className="w-[230px] sm:w-[300px] lg:w-[360px]"
-                            priority
+                            className="w-[230px] sm:w-[300px] lg:w-[360px] h-auto"
                         />
                     </Link>
+
 
                     <div className="flex items-center">
                         {/* Desktop Contact Button */}
