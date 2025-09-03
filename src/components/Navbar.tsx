@@ -18,10 +18,14 @@ function Navbar() {
             <div className="flex items-center justify-between px-6 py-3 bg-gray-300">
                 <div className="flex items-center justify-around w-full max-w-8xl mx-auto">
                     <Link href="/" className="flex-shrink-0">
-                        <img
-                            src="/2.svg"
+                        <Image
+                            src="/2.png"
                             alt="Company Logo"
-                            className="w-[230px] sm:w-[300px] lg:w-[360px] h-auto"
+                            width={360}
+                            height={360}
+                            style={{ height: "auto" }} // keeps aspect ratio
+                            className="w-[230px] sm:w-[300px] lg:w-[360px]"
+                            priority
                         />
                     </Link>
 
