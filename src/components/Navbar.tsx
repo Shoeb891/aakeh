@@ -20,10 +20,10 @@ function Navbar() {
                     <Link href="/" className="flex-shrink-0">
                        <Image
                                 
-                                 src="/vercel.svg"
+                                 src="/2.svg"
                                  alt="Next.js logo"
-                                 width={120}
-                                 height={120}
+                                 width={320}
+                                 height={320}
                                  priority
                                />
                     </Link>
