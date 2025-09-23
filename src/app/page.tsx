@@ -1,103 +1,307 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/vercel.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const services = [
+    { title: "Computerised Eye Testing", icon: "/file.svg" },
+    { title: "Phacoemulsification Cataract Surgery", icon: "/window.svg" },
+    { title: "Squint Surgery", icon: "/2.svg" },
+    { title: "DCR, DCT, Surgery", icon: "/globe.svg" },
+    { title: "Pterygium Surgery", icon: "/file.svg" },
+    { title: "Lasik Surgery Evaluation", icon: "/window.svg" },
+    { title: "Opticals & Contact Lens", icon: "/2.svg" },
+    { title: "Pharmacy", icon: "/globe.svg" },
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const faqs = [
+    {
+      q: "Do I need an appointment?",
+      a: "Walk-ins for registration are accepted during timings. For surgeries and detailed evaluation, please call to schedule.",
+    },
+    {
+      q: "Do you have opticals and contact lenses?",
+      a: "Yes, we have an in-house opticals and contact lens service during working hours.",
+    },
+    {
+      q: "What payment methods are accepted?",
+      a: "We accept cash and most UPI/cards. Please call to confirm specific options.",
+    },
+  ];
+
+  return (
+    <main className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative bg-[#e9eff7] py-20 md:py-28 overflow-hidden min-h-[600px] flex items-end">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/eyephoto.jpg"
+            alt="Child eye examination"
+            fill
+            priority
+            className="object-cover object-right-bottom"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#e9eff7] via-[#e9eff7]/80 to-transparent" />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+
+        {/* Dotted Circular SVG Pattern */}
+        <svg
+          className="absolute right-0 top-1/2 -translate-y-1/2 w-[650px] h-[650px] text-[#e0e960] opacity-90"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 200 200"
+          stroke="currentColor"
+          strokeWidth="8"
+          strokeDasharray="12 12"
+          aria-hidden="true"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          <circle cx="100" cy="100" r="90" />
+          {/* Inner circle with different color for the small dash */}
+          <path d="M100 10 C150 10, 190 50, 190 100" stroke="#1d968b" strokeWidth="8" strokeDasharray="12 12" />
+        </svg>
+
+        <div className="relative max-w-6xl mx-auto px-6 z-10 pb-16 md:pb-24">
+          <div className="max-w-xl">
+            <p className="text-3xl md:text-4xl font-semibold text-[#241773] leading-relaxed">
+              “Investment in patient care is critical and the research into eye
+              conditions to help find new treatments is priceless.”
+            </p>
+            <p className="mt-5 text-lg text-gray-700">Brenda Silverman, patient and supporter</p>
+            <Link
+              href="#"
+              className="mt-10 inline-flex items-center px-7 py-4 bg-[#8e24aa] text-white rounded-full font-medium hover:bg-[#7a1f8e] transition-colors duration-200 text-lg"
+            >
+              Our impact
+              <svg className="ml-3 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1  0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="bg-white py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#241773] mb-10 text-center md:text-left">
+            Comprehensive Eye Care Services
+          </h2>
+          <p className="mt-3 text-xl text-gray-700 mb-12 text-center md:text-left">
+            Diagnostics, surgery, opticals, and pharmacy under one roof.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {services.map((s) => (
+              <div key={s.title} className="group rounded-xl border border-gray-200 p-7 bg-white shadow hover:shadow-lg transition-all duration-300">
+                <div className="relative h-16 w-16 rounded-full bg-[#e0f2fe] ring-2 ring-[#bae6fd] flex items-center justify-center mb-5">
+                  <Image src={s.icon} alt="" width={36} height={36} className="opacity-80" />
+                </div>
+                <h3 className="font-semibold text-2xl text-[#241773] group-hover:text-[#6a1b9a] transition-colors duration-300">{s.title}</h3>
+                <p className="text-base text-gray-600 mt-3">Available during regular hospital hours.</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Info Strip */}
+      <section className="bg-[#f5f8fd] text-gray-800 py-16 px-6">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-center md:text-left">
+          <div>
+            <p className="text-xl font-semibold">Abid Ali Khan Eye Hospital</p>
+            <p className="text-base text-gray-600 mt-2">DARULSHIFA, HYDERABAD - 500 024 (T.G)</p>
+          </div>
+          <div>
+            <p className="text-xl font-semibold">Phone</p>
+            <a href="tel:04024418929" className="text-base text-gray-600 mt-2 hover:underline">040-24418929</a>
+          </div>
+          <div>
+            <p className="text-xl font-semibold">Morning Registration</p>
+            <p className="text-base text-gray-600 mt-2">9:00 AM – 3:00 PM</p>
+          </div>
+          <div>
+            <p className="text-xl font-semibold">Evening Registration</p>
+            <p className="text-base text-gray-600 mt-2">5:30 PM – 7:30 PM</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Doctors */}
+      <section className="bg-[#f5f8fd] py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#241773] mb-12 text-center">
+            Meet Our Experienced Ophthalmologists
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="rounded-xl overflow-hidden bg-white shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+                <div className="relative h-56 w-full">
+                  <Image src="/hero-eye.jpg" alt="Doctor" fill className="object-cover" />
+                </div>
+                <div className="p-6 text-center">
+                  <p className="font-bold text-xl text-[#241773]">Dr. [Doctor Name {i}]</p>
+                  <p className="text-base text-gray-600 mt-2">Specialization: Cataract, LASIK, General Eye Care</p>
+                  <Link href="#" className="text-base text-[#6a1b9a] hover:underline mt-4 inline-block">View Profile &raquo;</Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats */}
+      <section className="bg-[#241773] text-white py-20 px-6">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-10 text-center">
+          <div>
+            <p className="text-6xl font-extrabold text-[#8e24aa]">25+</p>
+            <p className="text-white/80 mt-3 text-xl">Years of Dedicated Service</p>
+          </div>
+          <div>
+            <p className="text-6xl font-extrabold text-[#8e24aa]">100k+</p>
+            <p className="text-white/80 mt-3 text-xl">Happy Patients Treated</p>
+          </div>
+          <div>
+            <p className="text-6xl font-extrabold text-[#8e24aa]">10k+</p>
+            <p className="text-white/80 mt-3 text-xl">Successful Surgeries Performed</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="bg-white py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#241773] mb-12 text-center">
+            What Our Patients Say
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[{
+              quote: "The care I received here was exceptional, leading to a quick and comfortable recovery.",
+              author: "Patient A, Hyderabad"
+            },
+            {
+              quote: "A truly clean and welcoming facility with incredibly helpful and compassionate staff.",
+              author: "Patient B, Hyderabad"
+            },
+            {
+              quote: "Highly experienced doctors and modern equipment gave me confidence in my treatment.",
+              author: "Patient C, Hyderabad"
+            },
+            ].map((testimonial, idx) => (
+              <div key={idx} className="rounded-xl border border-gray-200 p-7 bg-white shadow hover:shadow-lg transition-all duration-300">
+                <p className="text-gray-700 text-lg italic">“{testimonial.quote}”</p>
+                <p className="mt-5 text-base font-semibold text-gray-500">— {testimonial.author}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Map & Hours */}
+      <section className="bg-[#f5f8fd] py-20 px-6">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+          <div>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#241773] mb-8">Locate Us & Visit</h2>
+            <div className="rounded-xl overflow-hidden border border-gray-200 shadow-lg">
+              <iframe
+                title="Map to Abid Ali Khan Eye Hospital"
+                src="https://www.google.com/maps?q=Abid+Ali+Khan+Eye+Hospital+Darulshifa+Hyderabad&output=embed"
+                width="100%"
+                height="400"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="border-0"
+              />
+            </div>
+          </div>
+          <div>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#241773] mb-8">Our Hours</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="rounded-xl border border-gray-200 p-6 bg-white shadow">
+                <p className="text-base text-gray-500">Morning Registration</p>
+                <p className="font-bold text-xl text-[#241773] mt-2">9:00 AM – 3:00 PM</p>
+              </div>
+              <div className="rounded-xl border border-gray-200 p-6 bg-white shadow">
+                <p className="text-base text-gray-500">Evening Registration</p>
+                <p className="font-bold text-xl text-[#241773] mt-2">5:30 PM – 7:30 PM</p>
+              </div>
+              <div className="rounded-xl border border-gray-200 p-6 bg-white shadow col-span-full">
+                <p className="text-base text-gray-500">Contact Us</p>
+                <a href="tel:04024418929" className="font-bold text-xl text-[#241773] hover:underline decoration-[#6a1b9a] underline-offset-4 mt-2 block">04024418929</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Affiliations */}
+      <section className="bg-white py-16 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#241773] mb-10 text-center">Our Trusted Affiliations</h2>
+          <div className="flex flex-wrap items-center justify-center gap-10 opacity-80">
+            {[
+              { src: "/logo.png", w: 140, h: 50, alt: "Affiliation Logo 1" },
+              { src: "/vercel.svg", w: 140, h: 50, alt: "Affiliation Logo 2" },
+              { src: "/1.svg", w: 140, h: 50, alt: "Affiliation Logo 3" },
+            ].map((l, i) => (
+              <Image key={i} src={l.src} alt={l.alt} width={l.w} height={l.h} className="grayscale hover:grayscale-0 transition-all duration-300" />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQs */}
+      <section className="bg-[#241773] text-white py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">Common Questions</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {faqs.map((f) => (
+              <details key={f.q} className="rounded-xl bg-white/10 p-6 open:bg-white/20 transition-all duration-300 cursor-pointer">
+                <summary className="select-none font-semibold text-xl hover:text-white/90 focus:outline-none">
+                  {f.q}
+                </summary>
+                <p className="mt-4 text-gray-200 text-lg leading-relaxed">{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Hospital",
+            name: "Abid Ali Khan Eye Hospital",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "Darulshifa",
+              addressLocality: "Hyderabad",
+              postalCode: "500024",
+              addressRegion: "TG",
+              addressCountry: "IN",
+            },
+            telephone: "+91-40-24418929",
+            openingHoursSpecification: [
+              {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: [
+                  "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",
+                ],
+                opens: "09:00",
+                closes: "15:00",
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: [
+                  "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",
+                ],
+                opens: "17:30",
+                closes: "19:30",
+              },
+            ],
+          }),
+        }}
+      />
+    </main>
   );
 }
