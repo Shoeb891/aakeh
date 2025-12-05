@@ -32,8 +32,8 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-    <section className="relative bg-[#e9eff7] overflow-hidden min-h-[400px] md:min-h-[500px]">
-  <div className="flex flex-col md:flex-row min-h-[400px] md:min-h-[500px]">
+    <section className="relative bg-[#e9eff7] overflow-hidden min-h-[400px] md:min-h-[550px]">
+  <div className="flex flex-col md:flex-row min-h-[400px] md:min-h-[550px]">
     {/* Left Half - Image */}
     <div className="relative w-full md:w-1/2 h-[250px] md:h-auto">
       <Image
@@ -57,10 +57,9 @@ export default function Home() {
       {/* Text Content */}
       <div className="relative z-10 px-6 md:px-10 lg:px-14 pb-10 md:pb-12 lg:pb-16 max-w-2xl">
         <p className="text-xl md:text-2xl lg:text-3xl font-semibold text-[#241773] leading-relaxed">
-          "Investment in patient care is critical and the research into eye
-          conditions to help find new treatments is priceless."
+          "Offering advanced eye surgery with modern amenities, expert care, and affordable rates"
         </p>
-        <p className="mt-3 md:mt-4 text-sm md:text-base lg:text-lg text-gray-700">Brenda Silverman, patient and supporter</p>
+        {/* <p className="mt-3 md:mt-4 text-sm md:text-base lg:text-lg text-gray-700">Brenda Silverman, patient and supporter</p> */}
         <Link
           href="#"
           className="mt-6 md:mt-8 inline-flex items-center px-5 md:px-6 py-2.5 md:py-3 bg-[#8e24aa] text-white rounded-full font-medium hover:bg-[#7a1f8e] transition-colors duration-200 text-sm md:text-base"
