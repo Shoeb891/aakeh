@@ -1,3 +1,4 @@
+import IrisPattern from "@/components/IrisPattern";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -31,76 +32,72 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-[#e9eff7] py-20 md:py-28 overflow-hidden min-h-[600px] flex items-end">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/eyephoto.jpg"
-            alt="Child eye examination"
-            fill
-            priority
-            className="object-cover object-right-bottom"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#e9eff7] via-[#e9eff7]/80 to-transparent" />
-        </div>
+    <section className="relative bg-[#e9eff7] overflow-hidden min-h-[400px] md:min-h-[500px]">
+  <div className="flex flex-col md:flex-row min-h-[400px] md:min-h-[500px]">
+    {/* Left Half - Image */}
+    <div className="relative w-full md:w-1/2 h-[250px] md:h-auto">
+      <Image
+        src="/eyephoto.jpg"
+        alt="Child eye examination"
+        fill
+        priority
+        className="object-cover"
+      />
+      {/* Gradient overlay transitioning to right side (bottom on mobile) */}
+      <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-transparent via-transparent to-[#e9eff7]" />
+    </div>
+    
+    {/* Right Half - Pattern and Text */}
+    <div className="relative w-full md:w-1/2 bg-[#e9eff7] py-10 md:py-16 lg:py-20 flex items-end">
+      {/* Iris Pattern */}
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[280px] h-[280px] md:w-[350px] md:h-[350px] lg:w-[500px] lg:h-[500px] opacity-30 md:opacity-40 pointer-events-none">
+        <IrisPattern />
+      </div>
 
-        {/* Dotted Circular SVG Pattern */}
-        <svg
-          className="absolute right-0 top-1/2 -translate-y-1/2 w-[650px] h-[650px] text-[#e0e960] opacity-90"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 200 200"
-          stroke="currentColor"
-          strokeWidth="8"
-          strokeDasharray="12 12"
-          aria-hidden="true"
+      {/* Text Content */}
+      <div className="relative z-10 px-6 md:px-10 lg:px-14 pb-10 md:pb-12 lg:pb-16 max-w-2xl">
+        <p className="text-xl md:text-2xl lg:text-3xl font-semibold text-[#241773] leading-relaxed">
+          "Investment in patient care is critical and the research into eye
+          conditions to help find new treatments is priceless."
+        </p>
+        <p className="mt-3 md:mt-4 text-sm md:text-base lg:text-lg text-gray-700">Brenda Silverman, patient and supporter</p>
+        <Link
+          href="#"
+          className="mt-6 md:mt-8 inline-flex items-center px-5 md:px-6 py-2.5 md:py-3 bg-[#8e24aa] text-white rounded-full font-medium hover:bg-[#7a1f8e] transition-colors duration-200 text-sm md:text-base"
         >
-          <circle cx="100" cy="100" r="90" />
-          {/* Inner circle with different color for the small dash */}
-          <path d="M100 10 C150 10, 190 50, 190 100" stroke="#1d968b" strokeWidth="8" strokeDasharray="12 12" />
-        </svg>
+          Our impact
+          <svg className="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd"></path>
+          </svg>
+        </Link>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div className="relative max-w-6xl mx-auto px-6 z-10 pb-16 md:pb-24">
-          <div className="max-w-xl">
-            <p className="text-3xl md:text-4xl font-semibold text-[#241773] leading-relaxed">
-              “Investment in patient care is critical and the research into eye
-              conditions to help find new treatments is priceless.”
-            </p>
-            <p className="mt-5 text-lg text-gray-700">Brenda Silverman, patient and supporter</p>
-            <Link
-              href="#"
-              className="mt-10 inline-flex items-center px-7 py-4 bg-[#8e24aa] text-white rounded-full font-medium hover:bg-[#7a1f8e] transition-colors duration-200 text-lg"
-            >
-              Our impact
-              <svg className="ml-3 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1  0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
-            </Link>
+{/* Services Section */}
+<section className="bg-white py-20 px-6">
+  <div className="max-w-6xl mx-auto">
+    <h2 className="text-4xl md:text-5xl font-bold text-[#241773] mb-10 text-center md:text-left">
+      Comprehensive Eye Care Services
+    </h2>
+    <p className="mt-3 text-xl text-gray-700 mb-12 text-center md:text-left">
+      Diagnostics, surgery, opticals, and pharmacy under one roof.
+    </p>
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {services.map((s) => (
+        <div key={s.title} className="group rounded-xl border border-gray-200 p-7 bg-white shadow hover:shadow-lg transition-all duration-300">
+          <div className="relative h-16 w-16 rounded-full bg-[#e0f2fe] ring-2 ring-[#bae6fd] flex items-center justify-center mb-5">
+            <Image src={s.icon} alt="" width={36} height={36} className="opacity-80" />
           </div>
+          <h3 className="font-semibold text-2xl text-[#241773] group-hover:text-[#6a1b9a] transition-colors duration-300">{s.title}</h3>
+          <p className="text-base text-gray-600 mt-3">Available during regular hospital hours.</p>
         </div>
-      </section>
-
-      {/* Services Section */}
-      <section className="bg-white py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#241773] mb-10 text-center md:text-left">
-            Comprehensive Eye Care Services
-          </h2>
-          <p className="mt-3 text-xl text-gray-700 mb-12 text-center md:text-left">
-            Diagnostics, surgery, opticals, and pharmacy under one roof.
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map((s) => (
-              <div key={s.title} className="group rounded-xl border border-gray-200 p-7 bg-white shadow hover:shadow-lg transition-all duration-300">
-                <div className="relative h-16 w-16 rounded-full bg-[#e0f2fe] ring-2 ring-[#bae6fd] flex items-center justify-center mb-5">
-                  <Image src={s.icon} alt="" width={36} height={36} className="opacity-80" />
-                </div>
-                <h3 className="font-semibold text-2xl text-[#241773] group-hover:text-[#6a1b9a] transition-colors duration-300">{s.title}</h3>
-                <p className="text-base text-gray-600 mt-3">Available during regular hospital hours.</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* Info Strip */}
       <section className="bg-[#f5f8fd] text-gray-800 py-16 px-6">
