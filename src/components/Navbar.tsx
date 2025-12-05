@@ -16,7 +16,7 @@ function Navbar() {
         <header>
             {/* Top Header */}
             <div className="flex items-center justify-between px-6 py-4 bg-gray-50">
-                <div className="flex items-center justify-around w-full max-w-8xl mx-auto">
+<div className="flex items-center justify-between md:justify-around w-full max-w-8xl mx-auto">
                     <Link href="/" className="flex-shrink-0">
                         <Image
 
@@ -25,6 +25,7 @@ function Navbar() {
                             width={320}
                             height={320}
                             priority
+                            className="w-[240px] h-auto md:w-[300px] lg:w-[320px]"
                         />
                     </Link>
 
@@ -46,8 +47,8 @@ function Navbar() {
                                 className="text-4xl cursor-pointer p-3 rounded-lg hover:bg-gray-400/80 hover:scale-105 transition-all duration-150 ease-out select-none active:scale-95"
                                 aria-label="Toggle mobile menu"
                             >
-                                <span className="block peer-checked:hidden transition-all duration-150">☰</span>
-                                <span className="hidden peer-checked:block transition-all duration-150">✕</span>
+                                <span className="block peer-checked:hidden transition-all duration-150 text-black">☰</span>
+                                <span className="hidden peer-checked:block transition-all duration-150 text-amber-950">✕</span>
                             </label>
 
                             {/* Mobile Dropdown Menu */}

@@ -57,7 +57,7 @@ export default function Home() {
       {/* Text Content */}
       <div className="relative z-10 px-6 md:px-10 lg:px-14 pb-10 md:pb-12 lg:pb-16 max-w-2xl">
         <p className="text-xl md:text-2xl lg:text-3xl font-semibold text-[#241773] leading-relaxed">
-          "Offering advanced eye surgery with modern amenities, expert care, and affordable rates"
+{"Offering advanced eye surgery with modern amenities, expert care, and affordable rates"}
         </p>
         {/* <p className="mt-3 md:mt-4 text-sm md:text-base lg:text-lg text-gray-700">Brenda Silverman, patient and supporter</p> */}
         <Link
