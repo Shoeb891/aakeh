@@ -1,4 +1,3 @@
-import IrisPattern from "@/components/IrisPattern";
 import IrisPattern2 from "@/components/IrisPattern2";
 import Image from "next/image";
 import Link from "next/link";
