@@ -16,7 +16,7 @@ function Navbar() {
     return (
         <header>
             {/* Top Header */}
-            <div className="flex items-center justify-between px-6 py-4 bg-gray-50">
+            <div className="flex items-center justify-between px-6 py-4 bg-[#e9eff7]">
                 <div className="flex items-center justify-between md:justify-around w-full max-w-8xl mx-auto">
                     <Link href="/" className="flex-shrink-0">
                         <Image

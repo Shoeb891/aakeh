@@ -1,4 +1,5 @@
 import IrisPattern from "@/components/IrisPattern";
+import IrisPattern2 from "@/components/IrisPattern2";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -31,148 +32,189 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative bg-[#e9eff7] overflow-hidden min-h-[400px] md:min-h-[550px]">
-        <div className="flex flex-col md:flex-row min-h-[400px] md:min-h-[550px]">
-          {/* Left Half - Image */}
-          <div className="relative w-full md:w-1/2 h-[250px] md:h-auto">
-            <Image
-              src="/eyephoto.jpg"
-              alt="Child eye examination"
-              fill
-              priority
-              className="object-cover"
-            />
-            {/* Gradient overlay transitioning to right side (bottom on mobile) */}
+    <section className="relative bg-[#e9eff7] overflow-hidden min-h-[400px] md:min-h-[600px]">
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-[#8e24aa]/10 to-transparent rounded-full blur-3xl" />
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-tr from-[#241773]/5 to-transparent rounded-full blur-3xl" />
+      </div>
+
+      <div className="flex flex-col md:flex-row min-h-[400px] md:min-h-[600px] relative">
+        {/* Left Half - Image with enhanced overlay */}
+        <div className="relative w-full md:w-1/2 h-[250px] md:h-auto overflow-hidden">
+          <Image
+            src="/eyephoto.jpg"
+            alt="Child eye examination"
+            fill
+            priority
+            className="object-cover"
+          />
+          {/* Multi-layer gradient for smoother transition */}
+          <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-black/5 via-transparent to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-transparent via-transparent to-[#e9eff7]" />
+          
+          {/* Accent line separator */}
+          <div className="absolute right-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#8e24aa]/30 to-transparent hidden md:block" />
+        </div>
+
+        {/* Right Half - Content */}
+        <div className="relative w-full md:w-1/2 bg-[#e9eff7] py-12 md:py-20 lg:py-24 flex items-center">
+          {/* Iris Pattern - slightly animated */}
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[280px] h-[280px] md:w-[350px] md:h-[350px] lg:w-[500px] lg:h-[500px] opacity-30 md:opacity-40 pointer-events-none transition-opacity duration-1000 hover:opacity-50">
+            <IrisPattern2 />
           </div>
 
-          {/* Right Half - Pattern and Text */}
-          <div className="relative w-full md:w-1/2 bg-[#e9eff7] py-10 md:py-16 lg:py-20 flex items-end">
-            {/* Iris Pattern */}
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[280px] h-[280px] md:w-[350px] md:h-[350px] lg:w-[500px] lg:h-[500px] opacity-30 md:opacity-40 pointer-events-none">
-              <IrisPattern />
+          {/* Content Container */}
+          <div className="relative z-10 px-6 md:px-12 lg:px-16 w-full max-w-2xl">
+            {/* Eyebrow text */}
+            <p className="text-sm md:text-base font-medium text-[#8e24aa] mb-4 tracking-wide uppercase">
+              Excellence in Vision Care
+            </p>
+
+            {/* Main heading - split for emphasis */}
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#241773] leading-tight mb-6">
+              Advanced Eye Surgery
+              <span className="block text-2xl md:text-3xl lg:text-4xl font-normal mt-2 text-gray-700">
+                with modern amenities, expert care, and affordable rates
+              </span>
+            </h1>
+
+            {/* Feature list */}
+            <div className="space-y-3 mb-8">
+              {[
+                { icon: '✓', text: 'State-of-the-art surgical equipment' },
+                { icon: '✓', text: 'Board-certified ophthalmologists' },
+                { icon: '✓', text: 'Compassionate, personalized care' }
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-center gap-3 text-gray-700">
+                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#8e24aa] text-white flex items-center justify-center text-sm font-bold">
+                    {item.icon}
+                  </span>
+                  <span className="text-sm md:text-base">{item.text}</span>
+                </div>
+              ))}
             </div>
 
-            {/* Text Content */}
-            <div className="relative z-10 px-6 md:px-10 lg:px-14 pb-10 md:pb-12 lg:pb-16 max-w-2xl">
-              <p className="text-xl md:text-2xl lg:text-3xl font-semibold text-[#241773] leading-relaxed">
-                {"Offering advanced eye surgery with modern amenities, expert care, and affordable rates"}
-              </p>
-              {/* <p className="mt-3 md:mt-4 text-sm md:text-base lg:text-lg text-gray-700">Brenda Silverman, patient and supporter</p> */}
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="#"
-                className="mt-6 md:mt-8 inline-flex items-center px-5 md:px-6 py-2.5 md:py-3 bg-[#8e24aa] text-white rounded-full font-medium hover:bg-[#7a1f8e] transition-colors duration-200 text-sm md:text-base"
+                className="group inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-3.5 bg-[#8e24aa] text-white rounded-full font-semibold hover:bg-[#7a1f8e] transition-all duration-300 shadow-lg hover:shadow-xl text-sm md:text-base"
               >
                 Our impact
-                <svg className="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                  <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd"></path>
+                <svg className="ml-2 -mr-1 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                 </svg>
+              </Link>
+
+              <Link
+                href="#contact"
+                className="inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-3.5 bg-white text-[#241773] rounded-full font-semibold hover:bg-gray-50 transition-all duration-300 border-2 border-[#241773]/20 hover:border-[#241773]/40 text-sm md:text-base"
+              >
+                Book appointment
               </Link>
             </div>
           </div>
         </div>
-      </section>
-      {/* About Us Section */}
-      <section className="relative bg-gradient-to-br from-[#f8fafc] via-white to-[#f1f5f9] py-24 px-6 overflow-hidden">
-        {/* Decorative background elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#ddd6fe] rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#ddd6fe] rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse delay-1000" />
-
+      </div>
+    </section>
+    
+           {/* About Us Section */}
+      <section className="relative bg-[#e9eff7] py-20 px-6 overflow-hidden">
+        {/* Subtle decorative elements matching site style */}
+        <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-[#e9eff7] to-transparent opacity-50 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-[#f0e6ff] to-transparent opacity-40 rounded-full blur-3xl" />
+        
         <div className="max-w-6xl mx-auto relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-bold text-[#241773] mb-6">
-              About Our Hospital
+          {/* Header matching site style */}
+          <div className="text-center md:text-left mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#241773] mb-4">
+              Excellence in Eye Care Since 2000
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-[#8e24aa] to-[#6a1b9a] mx-auto rounded-full" />
+            <div className="w-20 h-1 bg-[#8e24aa] mx-auto md:mx-0" />
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+          {/* Main Content Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-16">
             {/* Left side - Story */}
             <div className="space-y-6">
-              <div className="relative">
-                <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-[#8e24aa] to-[#6a1b9a] rounded-full" />
-                <p className="text-xl text-gray-700 leading-relaxed pl-6">
-                  For over two decades, <span className="font-semibold text-[#241773]">Abid Ali Khan Eye Hospital</span> has been a beacon of hope and healing in the Darulshifa community. Founded with a vision to provide world-class eye care to every individual, regardless of their economic background, we have remained steadfast in our commitment to excellence and compassion.
-                </p>
-              </div>
-
-              <p className="text-lg text-gray-600 leading-relaxed">
-                Our journey began with a simple yet powerful mission: to eliminate preventable blindness and ensure that quality eye care is accessible to all. Today, we stand proud as a trusted healthcare institution, having touched the lives of over 50,000 patients with our expertise, modern technology, and unwavering dedication.
+              <p className="text-lg text-gray-700 leading-relaxed">
+                For over two decades, <span className="font-semibold text-[#241773]">Abid Ali Khan Eye Hospital</span> has stood as a pillar of exceptional ophthalmological care in the heart of Darulshifa, Hyderabad. Established with an unwavering commitment to providing world-class treatment to all members of our community, we have evolved into a center of excellence that seamlessly blends clinical expertise with compassionate patient care.
+              </p>
+              
+              <p className="text-base text-gray-600 leading-relaxed">
+                Our distinguished team of board-certified ophthalmologists and skilled healthcare professionals have successfully served over 50,000 patients, employing state-of-the-art diagnostic equipment and advanced surgical techniques. We pride ourselves on maintaining the highest standards of medical ethics while ensuring that quality eye care remains accessible and affordable to everyone who walks through our doors.
               </p>
 
-              <div className="flex flex-wrap gap-4 pt-4">
-                <div className="flex items-center gap-3 bg-white rounded-full px-6 py-3 shadow-md border border-gray-100">
-                  <div className="w-3 h-3 bg-[#8e24aa] rounded-full animate-pulse" />
-                  <span className="font-semibold text-[#241773]">Community Driven</span>
+              <div className="pt-6 grid grid-cols-3 gap-6 border-t border-gray-200">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-[#8e24aa] mb-2">01</div>
+                  <p className="text-sm font-semibold text-[#241773]">Clinical Excellence</p>
                 </div>
-                <div className="flex items-center gap-3 bg-white rounded-full px-6 py-3 shadow-md border border-gray-100">
-                  <div className="w-3 h-3 bg-[#6a1b9a] rounded-full animate-pulse" />
-                  <span className="font-semibold text-[#241773]">Patient First</span>
+                <div className="text-center border-l border-r border-gray-200">
+                  <div className="text-3xl font-bold text-[#8e24aa] mb-2">02</div>
+                  <p className="text-sm font-semibold text-[#241773]">Patient Dignity</p>
                 </div>
-                <div className="flex items-center gap-3 bg-white rounded-full px-6 py-3 shadow-md border border-gray-100">
-                  <div className="w-3 h-3 bg-[#8e24aa] rounded-full animate-pulse" />
-                  <span className="font-semibold text-[#241773]">Advanced Care</span>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-[#8e24aa] mb-2">03</div>
+                  <p className="text-sm font-semibold text-[#241773]">Ethical Practice</p>
                 </div>
               </div>
             </div>
 
-            {/* Right side - Values Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="group bg-white rounded-2xl p-7 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#8e24aa] transform hover:-translate-y-2">
-                <div className="w-14 h-14 bg-gradient-to-br from-[#8e24aa] to-[#6a1b9a] rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
+            {/* Right side - Values matching services card style */}
+            <div className="space-y-6">
+              <div className="group rounded-xl border border-gray-200 p-7 bg-white shadow hover:shadow-lg transition-all duration-300">
+                <div className="flex items-start gap-4">
+                  <div className="w-14 h-14 rounded-full bg-[#e0f2fe] ring-2 ring-[#bae6fd] flex items-center justify-center flex-shrink-0">
+                    <svg className="w-7 h-7 text-[#241773]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-xl text-[#241773] group-hover:text-[#6a1b9a] transition-colors duration-300 mb-2">Medical Excellence</h3>
+                    <p className="text-base text-gray-600 leading-relaxed">Delivering superior outcomes through continuous education and adoption of advanced ophthalmic procedures.</p>
+                  </div>
                 </div>
-                <h3 className="font-bold text-xl text-[#241773] mb-2">Excellence</h3>
-                <p className="text-gray-600">Delivering exceptional eye care with cutting-edge technology and expertise</p>
               </div>
 
-              <div className="group bg-white rounded-2xl p-7 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#8e24aa] transform hover:-translate-y-2">
-                <div className="w-14 h-14 bg-gradient-to-br from-[#6a1b9a] to-[#8e24aa] rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                  </svg>
+              <div className="group rounded-xl border border-gray-200 p-7 bg-white shadow hover:shadow-lg transition-all duration-300">
+                <div className="flex items-start gap-4">
+                  <div className="w-14 h-14 rounded-full bg-[#e0f2fe] ring-2 ring-[#bae6fd] flex items-center justify-center flex-shrink-0">
+                    <svg className="w-7 h-7 text-[#241773]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-xl text-[#241773] group-hover:text-[#6a1b9a] transition-colors duration-300 mb-2">Patient-Centered Care</h3>
+                    <p className="text-base text-gray-600 leading-relaxed">Ensuring every individual receives personalized attention in a comfortable, respectful environment.</p>
+                  </div>
                 </div>
-                <h3 className="font-bold text-xl text-[#241773] mb-2">Compassion</h3>
-                <p className="text-gray-600">Treating every patient with empathy, dignity, and personalized attention</p>
               </div>
 
-              <div className="group bg-white rounded-2xl p-7 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#8e24aa] transform hover:-translate-y-2">
-                <div className="w-14 h-14 bg-gradient-to-br from-[#8e24aa] to-[#6a1b9a] rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                  </svg>
+              <div className="group rounded-xl border border-gray-200 p-7 bg-white shadow hover:shadow-lg transition-all duration-300">
+                <div className="flex items-start gap-4">
+                  <div className="w-14 h-14 rounded-full bg-[#e0f2fe] ring-2 ring-[#bae6fd] flex items-center justify-center flex-shrink-0">
+                    <svg className="w-7 h-7 text-[#241773]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-xl text-[#241773] group-hover:text-[#6a1b9a] transition-colors duration-300 mb-2">Community Trust</h3>
+                    <p className="text-base text-gray-600 leading-relaxed">Building lasting relationships through transparency, integrity, and unwavering commitment to our neighbors.</p>
+                  </div>
                 </div>
-                <h3 className="font-bold text-xl text-[#241773] mb-2">Integrity</h3>
-                <p className="text-gray-600">Upholding ethical practices and transparency in all our services</p>
-              </div>
-
-              <div className="group bg-white rounded-2xl p-7 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#8e24aa] transform hover:-translate-y-2">
-                <div className="w-14 h-14 bg-gradient-to-br from-[#6a1b9a] to-[#8e24aa] rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <h3 className="font-bold text-xl text-[#241773] mb-2">Innovation</h3>
-                <p className="text-gray-600">Embracing modern techniques to provide the best outcomes</p>
               </div>
             </div>
           </div>
 
-          {/* Mission Statement Banner */}
-          <div className="relative bg-gradient-to-r from-[#241773] via-[#6a1b9a] to-[#8e24aa] rounded-3xl p-10 md:p-14 text-center shadow-2xl overflow-hidden">
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-0 left-1/4 w-64 h-64 bg-white rounded-full filter blur-3xl" />
-              <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-white rounded-full filter blur-3xl" />
-            </div>
-            <div className="relative z-10">
-              <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Mission</h3>
-              <p className="text-xl text-white/90 max-w-4xl mx-auto leading-relaxed">
-                To be the most trusted eye care provider in our community by delivering affordable, comprehensive, and compassionate services that restore vision and transform lives—one patient at a time.
-              </p>
-            </div>
+          {/* Mission Statement - styled to match purple sections */}
+            {/* Mission Statement */}
+          <div className="relative border-t border-b border-gray-200 py-16 text-center">
+            <p className="text-xs font-semibold tracking-[0.25em] text-[#6a1b9a] uppercase mb-6">Our Mission</p>
+            <blockquote className="text-2xl md:text-3xl font-serif font-light text-[#1a1a1a] max-w-4xl mx-auto leading-relaxed italic">
+              "To preserve and restore the gift of sight through exceptional medical care, ethical practice, and a steadfast dedication to serving our community with compassion and dignity."
+            </blockquote>
           </div>
         </div>
       </section>
@@ -221,24 +263,100 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Info Strip */}
-      <section className="bg-[#f5f8fd] text-gray-800 py-16 px-6">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-center md:text-left">
-          <div>
-            <p className="text-xl font-semibold">Abid Ali Khan Eye Hospital</p>
-            <p className="text-base text-gray-600 mt-2">DARULSHIFA, HYDERABAD - 500 024 (T.G)</p>
+       {/* Enhanced Info Strip */}
+      <section className="relative bg-gradient-to-br from-[#f5f8fd] via-[#f8fafd] to-[#f5f8fd] text-gray-800 py-12 px-6 overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#8e24aa]/20 to-transparent" />
+        <div className="absolute -top-20 -left-20 w-40 h-40 bg-[#8e24aa]/5 rounded-full blur-3xl" />
+        <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-[#241773]/5 rounded-full blur-3xl" />
+
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Location Card */}
+            <div className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-[#8e24aa] to-[#7a1f8e] flex items-center justify-center shadow-lg">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-lg font-bold text-[#241773] mb-1.5">Our Location</p>
+                  <p className="text-sm font-semibold text-gray-900">Abid Ali Khan Eye Hospital</p>
+                  <p className="text-xs text-gray-600 mt-1">Darulshifa, Hyderabad - 500 024 (T.G)</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Phone Card */}
+            <div className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-[#8e24aa] to-[#7a1f8e] flex items-center justify-center shadow-lg">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-lg font-bold text-[#241773] mb-1.5">Call Us</p>
+                  <a href="tel:04024418929" className="text-base font-semibold text-[#8e24aa] hover:text-[#7a1f8e] transition-colors duration-200 hover:underline">
+                    040-24418929
+                  </a>
+                  <p className="text-xs text-gray-600 mt-1">Available during registration hours</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Morning Hours Card */}
+            <div className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-[#8e24aa] to-[#7a1f8e] flex items-center justify-center shadow-lg">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-lg font-bold text-[#241773] mb-1.5">Morning</p>
+                  <p className="text-base font-semibold text-gray-900">9:00 AM – 3:00 PM</p>
+                  <p className="text-xs text-gray-600 mt-1">Registration hours</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Evening Hours Card */}
+            <div className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-[#8e24aa] to-[#7a1f8e] flex items-center justify-center shadow-lg">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                  </svg>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-lg font-bold text-[#241773] mb-1.5">Evening</p>
+                  <p className="text-base font-semibold text-gray-900">5:30 PM – 7:30 PM</p>
+                  <p className="text-xs text-gray-600 mt-1">Registration hours</p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div>
-            <p className="text-xl font-semibold">Phone</p>
-            <a href="tel:04024418929" className="text-base text-gray-600 mt-2 hover:underline">040-24418929</a>
-          </div>
-          <div>
-            <p className="text-xl font-semibold">Morning Registration</p>
-            <p className="text-base text-gray-600 mt-2">9:00 AM – 3:00 PM</p>
-          </div>
-          <div>
-            <p className="text-xl font-semibold">Evening Registration</p>
-            <p className="text-base text-gray-600 mt-2">5:30 PM – 7:30 PM</p>
+
+          {/* Quick action banner */}
+          <div className="mt-10 bg-gradient-to-r from-[#241773] to-[#241773] rounded-2xl p-6 shadow-xl">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+              <div className="text-center md:text-left">
+                <p className="text-white font-bold text-lg mb-1">Need an appointment?</p>
+                <p className="text-white/80 text-sm">Walk in during registration hours or call us to schedule</p>
+              </div>
+              <Link
+                href="#contact"
+                className="inline-flex items-center px-6 py-3 bg-white text-[#241773] rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:scale-105 whitespace-nowrap"
+              >
+                Contact Us
+                <svg className="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
