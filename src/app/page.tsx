@@ -212,7 +212,7 @@ export default function Home() {
           <div className="relative border-t border-b border-gray-200 py-16 text-center">
             <p className="text-xs font-semibold tracking-[0.25em] text-[#6a1b9a] uppercase mb-6">Our Mission</p>
             <blockquote className="text-2xl md:text-3xl font-serif font-light text-[#1a1a1a] max-w-4xl mx-auto leading-relaxed italic">
-              "To preserve and restore the gift of sight through exceptional medical care, ethical practice, and a steadfast dedication to serving our community with compassion and dignity."
+              To preserve and restore the gift of sight through exceptional medical care, ethical practice, and a steadfast dedication to serving our community with compassion and dignity.
             </blockquote>
           </div>
         </div>
