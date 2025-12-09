@@ -44,9 +44,12 @@ export default function Footer() {
         </div>
 
         {/* Bottom Copyright */}
-        <div className="py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-base md:text-lg text-white/80">
-          <p>&copy; {new Date().getFullYear()} Abid Ali Khan Eye Hospital. All rights reserved.</p>
-        </div>
+       <div className="py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-base md:text-lg text-white/80">
+  <p className="text-center md:text-left">
+    &copy; {new Date().getFullYear()} Abid Ali Khan Eye Hospital. All rights reserved.
+  </p>
+</div>
+
       </div>
     </footer>
   );

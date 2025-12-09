@@ -4,11 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 const NAV_ITEMS = [
-    { title: "About us", href: "/about" },
-    { title: "Research and innovation", href: "/research" },
-    { title: "Services", href: "/services" },
-    { title: "Our Services", href: "/our-services" },
-    { title: "Location", href: "/location" }
+    { title: "Home", href: "/" },
+    { title: "About Us", href: "/about-us" },
+    { title: "Our Services", href: "/services" },
+    { title: "Location", href: "/location" },
+        { title: "Contact Us", href: "/contact" },
+
 ] as const;
 
 function Navbar() {
@@ -16,7 +17,7 @@ function Navbar() {
         <header>
             {/* Top Header */}
             <div className="flex items-center justify-between px-6 py-4 bg-gray-50">
-<div className="flex items-center justify-between md:justify-around w-full max-w-8xl mx-auto">
+                <div className="flex items-center justify-between md:justify-around w-full max-w-8xl mx-auto">
                     <Link href="/" className="flex-shrink-0">
                         <Image
 
