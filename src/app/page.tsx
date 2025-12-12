@@ -31,7 +31,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-    <section className="relative bg-[#e9eff7] overflow-hidden min-h-[400px] md:min-h-[600px]">
+    <section id="home" className="relative bg-[#e9eff7] overflow-hidden min-h-[400px] md:min-h-[600px]">
       {/* Decorative background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-[#8e24aa]/10 to-transparent rounded-full blur-3xl" />
@@ -119,7 +119,7 @@ export default function Home() {
     </section>
     
            {/* About Us Section */}
-      <section className="relative bg-[#e9eff7] py-20 px-6 overflow-hidden">
+      <section id="about" className="relative bg-[#e9eff7] py-20 px-6 overflow-hidden">
         {/* Subtle decorative elements matching site style */}
         <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-[#e9eff7] to-transparent opacity-50 rounded-full blur-3xl" />
         <div className="absolute bottom-20 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-[#f0e6ff] to-transparent opacity-40 rounded-full blur-3xl" />
@@ -219,7 +219,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="bg-white py-20 px-6">
+      <section id="services" className="bg-white py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-[#241773] mb-10 text-center md:text-left">
             Comprehensive Eye Care Services
@@ -340,7 +340,7 @@ export default function Home() {
           </div>
 
           {/* Quick action banner */}
-          <div className="mt-10 bg-gradient-to-r from-[#241773] to-[#241773] rounded-2xl p-6 shadow-xl">
+          <div id="contact" className="mt-10 bg-gradient-to-r from-[#241773] to-[#241773] rounded-2xl p-6 shadow-xl">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <div className="text-center md:text-left">
                 <p className="text-white font-bold text-lg mb-1">Need an appointment?</p>
@@ -438,7 +438,7 @@ export default function Home() {
       </section>
 
       {/* Map & Hours */}
-      <section className="bg-[#f5f8fd] py-20 px-6">
+      <section id="location"className="bg-[#f5f8fd] py-20 px-6">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold text-[#241773] mb-8">Locate Us & Visit</h2>
