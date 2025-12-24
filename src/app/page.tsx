@@ -395,7 +395,7 @@ export default function Home() {
           <div>
             <p className="text-3xl font-semibold text-white">Community-Focused</p>
             <p className="text-white/80 mt-3 text-lg">
-              Serving patients from Darulshifa, Malakpet, and surrounding areas with affordable, ethical care.
+              Serving patients from Hyderabad, and surrounding areas with affordable, ethical care.
             </p>
           </div>
           <div>
