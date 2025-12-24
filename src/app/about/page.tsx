@@ -19,7 +19,7 @@ export default function about() {
             {/* Left side - Story */}
             <div className="space-y-6">
               <p className="text-lg text-gray-700 leading-relaxed">
-                For over two decades, <span className="font-semibold text-[#241773]">Abid Ali Khan Eye Hospital</span> has stood as a pillar of exceptional ophthalmological care in the heart of Darulshifa, Hyderabad. Established with an unwavering commitment to providing world-class treatment to all members of our community, we have evolved into a center of excellence that seamlessly blends clinical expertise with compassionate patient care.
+                For over two decades, <span className="font-semibold text-[#241773]">Abid Ali Khan Eye Hospital</span> has stood as a pillar of exceptional ophthalmological care in the heart of Hyderabad. Established with an unwavering commitment to providing world-class treatment to all members of our community, we have evolved into a center of excellence that seamlessly blends clinical expertise with compassionate patient care.
               </p>
               
               <p className="text-base text-gray-600 leading-relaxed">

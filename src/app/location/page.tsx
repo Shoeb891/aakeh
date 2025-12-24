@@ -48,7 +48,7 @@ export default function location(){
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">Visit Us</h1>
           <p className="text-xl md:text-2xl text-blue-950 max-w-3xl mx-auto">
-            Conveniently located in the heart of Darulshifa, Hyderabad. Easy to reach and accessible to all.
+            Conveniently located in the heart of Hyderabad. Easy to reach and accessible to all.
           </p>
         </div>
       </section>
